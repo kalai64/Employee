@@ -14,7 +14,7 @@ function Create() {
     const Submit = async(e)=>{
         e.preventDefault()
         try {
-            await axios.post('http://localhost:8000/create',{name,address,age,department,status})
+            await axios.post('https://employee-jnhl.onrender.com/create',{name,address,age,department,status})
             .then(result => navigate('/'))
             
         } catch (error) {

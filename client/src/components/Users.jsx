@@ -8,7 +8,7 @@ function Users() {
 
     const getData = async () => {
         try {
-            const result = await axios.get('http://localhost:8000/users')
+            const result = await axios.get('https://employee-jnhl.onrender.com/users')
             setUsers(result.data)
         } catch (error) {
             console.log(error)
@@ -21,7 +21,7 @@ function Users() {
         
         const handleDelete = async (id) => {
             try {
-                await axios.delete('http://localhost:8000/deleteuser/' + id)
+                await axios.delete('https://employee-jnhl.onrender.com/deleteuser/' + id)
                 window.location.reload()
             } catch (error) {
                 console.log(error)
