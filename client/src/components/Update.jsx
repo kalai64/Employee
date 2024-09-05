@@ -14,7 +14,7 @@ function Update() {
 
     const getData = async () => {
         try {
-            const result = await axios.get('https://employee-jnhl.onrender.com/getuser/' + id)
+            const result = await axios.get('http://localhost:8000/getuser/' + id)
             setName(result.data.name)
             setAddress(result.data.address)
             setAge(result.data.age)
@@ -32,7 +32,7 @@ function Update() {
     const Updates = async (e) => {
         e.preventDefault()
         try {
-            await axios.put('https://employee-jnhl.onrender.com/updateuser/' + id, {name,address,age,department,status })
+            await axios.put('http://localhost:8000/updateuser/' + id, {name,address,age,department,status })
             navigate('/')
         } catch (error) {
             console.log(error)

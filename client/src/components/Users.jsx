@@ -2,7 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { deleteUser, setUsers } from '../redux/store';
+import { deleteUser, setUsers } from '../redux/userSlice';
+
 
 function Users() {
 
@@ -11,8 +12,8 @@ function Users() {
 
     const getData = async () => {
         try {
-            const result = await axios.get('https://employee-jnhl.onrender.com/users')
-            dispatch(setUsers(result.data));
+            const result = await axios.get('http://localhost:8000/users')
+            dispatch(setUsers(result.data))
         } catch (error) {
             console.log(error)
         }
@@ -24,8 +25,8 @@ function Users() {
         
         const handleDelete = async (id) => {
             try {
-                await axios.delete('https://employee-jnhl.onrender.com/deleteuser/' + id)
-                dispatch(deleteUser(id));
+                await axios.delete('http://localhost:8000/deleteuser/' + id)
+                dispatch(deleteUser(id))
                 window.location.reload()
             } catch (error) {
                 console.log(error)
